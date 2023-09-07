@@ -18,4 +18,5 @@ bqm = [[0,1,-2],[0,0,-2],[0,0,3]]
 sampler = ExactSolver()
 sampleset = sampler.sample_qubo(bqm)
 print(sampleset)
+
 print(bqm)
