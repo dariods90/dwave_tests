@@ -1,6 +1,7 @@
 import numpy as np
 from dimod import ExactSolver
 from dwave.system import DWaveSampler, EmbeddingComposite
+import dwave.inspector
 
 print("The correct string is \n1  0  1  0  1  0  1  1  0  0  0 \n")
 
@@ -51,7 +52,7 @@ sampler = EmbeddingComposite(DWaveSampler())
 sampleset = sampler.sample_qubo(- QUBO_ex1_lambda5, num_reads=1000,label="MPBS (ex1) test with 9 transactions (lambda=5)")
 print(sampleset)
 '''
-QUBO_ex1_lambda075=np.array ([[-39.,     0.,    18.,     0.,     0.,    18.,     0.,    37.5,   60.,     0.,   0.,  ],
+QUBO_ex1_lambda075 = np.array ([[-39.,     0.,    18.,     0.,     0.,    18.,     0.,    37.5,   60.,     0.,   0.,  ],
  [  0.,     8.25,   0.,    10.5,    0.,     0.,     0.,   -10.5,    0.,   -42.,  0.,  ],
  [  0.,     0.,    29.5,  -42.,     0.,    -6.,     0.,     0. ,    0.,   -42.,  0.,  ],
  [  0.,     0.,     0.,    30.25,   0.,     0.,     0.,     0.,     0.,   -42.,  0.,  ],
@@ -69,6 +70,10 @@ sampler = ExactSolver()
 sampleset = sampler.sample_qubo(-QUBO_ex1_lambda075)
 print(sampleset)
 '''
+
 sampler = EmbeddingComposite(DWaveSampler())
-sampleset = sampler.sample_qubo(- QUBO_ex1_lambda075,num_reads=1000,label="MPBS (ex1) test with 9 transactions (lambda=075)")
+sampleset = sampler.sample_qubo(- QUBO_ex1_lambda5,num_reads=1,label="Test inspector (chain strenght amplified)")
 print(sampleset)
+
+
+dwave.inspector.show(sampleset)
