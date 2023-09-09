@@ -72,7 +72,7 @@ print(sampleset)
 '''
 
 sampler = EmbeddingComposite(DWaveSampler())
-sampleset = sampler.sample_qubo(- QUBO_ex1_lambda5,num_reads=1,label="Test inspector (chain strenght amplified)")
+sampleset = sampler.sample_qubo(- QUBO_ex1_lambda1,chain_strength=2000,num_reads=100,label="Test inspector (chain strenght amplified)")
 print(sampleset)
 
 
